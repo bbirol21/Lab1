@@ -1,11 +1,13 @@
 package hotcold;
 
 public class Player {
+	
+	// type of total score was changed to double
 
 	String playerName;
 	int guessedLocationx;
 	int guessedLocationy;
-	int totalScore;
+	double totalScore;
 	
 	public Player(String name) {
 		
@@ -27,7 +29,7 @@ public class Player {
 		return guessedLocationy;
 	}
 
-	public int getTotalScore() {
+	public double getTotalScore() {
 		return totalScore;
 	}
 
@@ -39,7 +41,8 @@ public class Player {
 		this.guessedLocationy = guessedLocationy;
 	}
 	
-	public void incrementTotalScore(int points) {
+	// it was changed to double
+	public void incrementTotalScore(double points) {
 		totalScore = totalScore + points;
 	}
 }

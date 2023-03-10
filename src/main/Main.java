@@ -44,7 +44,11 @@ public class Main {
 		
 		// 5. Play 3 rounds of Hot and Cold.
 		// For each iteration of the loop:
-		for (int i = 0; i<3; i++) {
+		
+		//for (int i = 0; i<3; i++) { (pre-lab code)
+		System.out.println("Please enter number of rounds to play");
+		int noOfRounds = input.nextInt();
+		for (int i = 0; i<noOfRounds; i++) {
 			
 			// 5.1 Take player1's guessed location.
 			System.out.println(name1 + " enter a number between 0 and 255 for the x location (both inclusive).");
@@ -81,7 +85,7 @@ public class Main {
 			p2.setGuessedLocationy(y2);
 			
 			// 5.3 Play a Hot and Cold round.
-			HotCold.play();
+			HotCold.playEuclidean();
 			
 		}
 		// 6. End of 3 rounds, display the results.

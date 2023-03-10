@@ -16,7 +16,14 @@ public class HotCold {
 		this.yLocationToGuess = yLocationToGuess;
 	}
 	
-	public void play() {
+	//new method was added for manhattan distance
+	public void playManhattan() {
+	
+		//if statement was planned to added but time wasn't enough
+	}
+	
+	
+	public void playEuclidean() {
 		
 		int dx1 = player1.getGuessedLocationx()-xLocationToGuess;
 		int dy1 = player1.getGuessedLocationy()-yLocationToGuess;
@@ -34,7 +41,9 @@ public class HotCold {
 		
 		if (distance1 > distance2) {
 			System.out.println(name2 + " won");
-			player2.incrementTotalScore(1);
+			//player2.incrementTotalScore(1);(pre-lab code)
+			player2.incrementTotalScore((1/distance2)*100);
+			
 		}
 		else if (distance1 == distance2) {
 			System.out.println(name1 + " and " + name2 + " were the same distance to the location.");
@@ -43,34 +52,32 @@ public class HotCold {
 		}
 		else {
 			System.out.println(name1 + " won");
-			player1.incrementTotalScore(1);
+			//player1.incrementTotalScore(1);
+			player1.incrementTotalScore((1/distance1)*100);
 		}
 	}
 	
 	
 	public void whoWon() {
 		
-		System.out.println("Location to guess was: x: "+ xLocationToGuess+ ", y: " +yLocationToGuess+ ".");
+		System.out.println("Location to guess was: x: " + xLocationToGuess + ", y: " + yLocationToGuess + "."); 
 		
-		int points1 = player1.getTotalScore();
-		int points2 = player2.getTotalScore();
 		String name1 = player1.getPlayerName();
 		String name2 = player2.getPlayerName();
 		
-		if (points2 > points1) {
+		if (player2.getTotalScore() > player1.getTotalScore()) {
 			String winner = name2;
-			int winnerPoints = points2;
+			double winnerPoints =player2.getTotalScore();
 			System.out.println(winner + " has won Hot and Cold with a total " + winnerPoints + " points");
 		}
-		if (points1 > points2) {
+		if (player1.getTotalScore() > player2.getTotalScore()) {
 			String winner = name1;
-			int winnerPoints = points1;
+			double winnerPoints = player1.getTotalScore();
 			System.out.println(winner + " has won Hot and Cold with a total " + winnerPoints + " points");
 		}
-		else if (points2 == points1) {
-			System.out.println("Hot and Cold between " + name1 + " and " + name2 + " resulted in a tie with both scoring " + points1 + " points.");
+		else if (player1.getTotalScore() == player2.getTotalScore()) {
+			System.out.println("Hot and Cold between " + name1 + " and " + name2 + " resulted in a tie with both scoring " + player1.getTotalScore() + " points.");
 		}
 		
 	}
-	
 }
